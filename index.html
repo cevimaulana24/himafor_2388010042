@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Himpunan Mahasiswa Informatika</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: #f4f7fb;
+            color: #1e293b;
+            line-height: 1.6;
+        }
+
+        header {
+            background: linear-gradient(135deg, #0f172a, #1e3a8a);
+            color: white;
+            padding: 20px 8%;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .menu {
+            display: flex;
+            gap: 25px;
+        }
+
+        .menu a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+        .menu a:hover {
+            color: #93c5fd;
+        }
+
+        .hero {
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 60px 8%;
+            background: linear-gradient(to right, #0f172a, #1d4ed8);
+            color: white;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .hero-text {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .hero-text h1 {
+            font-size: 54px;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero-text p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            max-width: 600px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 30px;
+            background: #38bdf8;
+            color: #0f172a;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: white;
+            transform: translateY(-2px);
+        }
+
+        .hero img {
+            width: 450px;
+            max-width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        section {
+            padding: 80px 8%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 38px;
+            color: #0f172a;
+            margin-bottom: 10px;
+        }
+
+        .section-title p {
+            color: #64748b;
+        }
+
+        .about {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            align-items: center;
+        }
+
+        .about img {
+            width: 100%;
+            border-radius: 20px;
+        }
+
+        .about-text h3 {
+            font-size: 30px;
+            margin-bottom: 20px;
+            color: #1e3a8a;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card h3 {
+            margin-bottom: 15px;
+            color: #1d4ed8;
+        }
+
+        .vision-mission {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .vision,
+        .mission {
+            background: white;
+            padding: 35px;
+            border-radius: 20px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .vision h3,
+        .mission h3 {
+            margin-bottom: 20px;
+            color: #2563eb;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .gallery img {
+            width: 100%;
+            border-radius: 15px;
+            height: 220px;
+            object-fit: cover;
+            transition: 0.3s;
+        }
+
+        .gallery img:hover {
+            transform: scale(1.03);
+        }
+
+        footer {
+            background: #0f172a;
+            color: white;
+            text-align: center;
+            padding: 30px;
+            margin-top: 50px;
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                text-align: center;
+            }
+
+            .hero-text h1 {
+                font-size: 38px;
+            }
+
+            nav {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .menu {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <nav>
+            <div class="logo">HIMAFOR</div>
+            <div class="menu">
+                <a href="#home">Beranda</a>
+                <a href="#about">Tentang</a>
+                <a href="#program">Program</a>
+                <a href="#visi">Visi & Misi</a>
+                <a href="#gallery">Galeri</a>
+                <a href="#contact">Kontak</a>
+            </div>
+        </nav>
+    </header>
+
+    <section class="hero" id="home">
+        <div class="hero-text">
+            <h1>Himpunan Mahasiswa Informatika</h1>
+            <p>
+                Wadah pengembangan mahasiswa Informatika yang aktif, kreatif, inovatif, dan berorientasi pada teknologi
+                masa depan.
+            </p>
+            <a href="#about" class="btn">Pelajari Lebih Lanjut</a>
+        </div>
+
+        <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1200&auto=format&fit=crop"
+            alt="Mahasiswa Informatika">
+    </section>
+
+    <section id="about">
+        <div class="section-title">
+            <h2>Tentang HIMAFOR</h2>
+            <p>Mengenal lebih dekat Himpunan Mahasiswa Informatika</p>
+        </div>
+
+        <div class="about">
+            <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1200&auto=format&fit=crop"
+                alt="Tentang HIMAFOR">
+
+            <div class="about-text">
+                <h3>Organisasi Mahasiswa Berbasis Teknologi</h3>
+                <p>
+                    Himpunan Mahasiswa Informatika (HIMAFOR) merupakan organisasi mahasiswa yang bertujuan untuk
+                    mengembangkan potensi mahasiswa dalam bidang akademik, teknologi, kepemimpinan, dan sosial.
+                </p>
+                <p>
+                    HIMAFOR menjadi wadah bagi mahasiswa untuk berkolaborasi, berinovasi, dan membangun relasi melalui
+                    berbagai program kerja dan kegiatan positif.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="program">
+        <div class="section-title">
+            <h2>Program Kerja</h2>
+            <p>Berbagai kegiatan unggulan HIMAFOR</p>
+        </div>
+
+        <div class="cards">
+            <div class="card">
+                <h3>Seminar Teknologi</h3>
+                <p>Menghadirkan pembicara profesional di bidang IT dan teknologi digital.</p>
+            </div>
+
+            <div class="card">
+                <h3>Pelatihan Coding</h3>
+                <p>Workshop pemrograman web, mobile, AI, dan pengembangan aplikasi.</p>
+            </div>
+
+            <div class="card">
+                <h3>Kompetisi IT</h3>
+                <p>Mendorong mahasiswa untuk berprestasi melalui lomba teknologi dan inovasi.</p>
+            </div>
+
+            <div class="card">
+                <h3>Pengabdian Masyarakat</h3>
+                <p>Kegiatan sosial dan edukasi teknologi kepada masyarakat sekitar.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="visi">
+        <div class="section-title">
+            <h2>Visi & Misi</h2>
+            <p>Arah dan tujuan organisasi HIMAFOR</p>
+        </div>
+
+        <div class="vision-mission">
+            <div class="vision">
+                <h3>Visi</h3>
+                <p>
+                    Menjadikan HIMAFOR sebagai organisasi mahasiswa yang unggul, inovatif, dan berkontribusi aktif dalam
+                    perkembangan teknologi informasi.
+                </p>
+            </div>
+
+            <div class="mission">
+                <h3>Misi</h3>
+                <ul>
+                    <li>Meningkatkan kualitas akademik dan non-akademik mahasiswa.</li>
+                    <li>Membangun budaya kolaborasi dan kreativitas.</li>
+                    <li>Menyelenggarakan kegiatan berbasis teknologi.</li>
+                    <li>Menjalin relasi dengan berbagai pihak internal maupun eksternal.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="gallery">
+        <div class="section-title">
+            <h2>Galeri Kegiatan</h2>
+            <p>Dokumentasi kegiatan mahasiswa informatika</p>
+        </div>
+
+        <div class="gallery">
+            <img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=80&w=1200&auto=format&fit=crop"
+                alt="Kegiatan 1">
+            <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=1200&auto=format&fit=crop"
+                alt="Kegiatan 2">
+            <img src="https://images.unsplash.com/photo-1516321497487-e288fb19713f?q=80&w=1200&auto=format&fit=crop"
+                alt="Kegiatan 3">
+            <img src="https://images.unsplash.com/photo-1522202222206-b750f8b2f2a1?q=80&w=1200&auto=format&fit=crop"
+                alt="Kegiatan 4">
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="section-title">
+            <h2>Kontak</h2>
+            <p>Hubungi kami untuk informasi lebih lanjut</p>
+        </div>
+
+        <div class="cards">
+            <div class="card">
+                <h3>Email</h3>
+                <p>himaforkampus@gmail.com</p>
+            </div>
+
+            <div class="card">
+                <h3>Instagram</h3>
+                <p>@himafor_kampus</p>
+            </div>
+
+            <div class="card">
+                <h3>Alamat</h3>
+                <p>Kampus Fakultas Teknik dan Informatika</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2026 Himpunan Mahasiswa Informatika | All Rights Reserved</p>
+    </footer>
+
+</body>
+
+</html>
