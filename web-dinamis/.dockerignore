@@ -1,0 +1,16 @@
+node_modules
+.next
+static
+.env
+.env.*
+!.env.example
+.git
+.gitignore
+desktop.ini
+**/desktop.ini
+Dockerfile
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+README.md

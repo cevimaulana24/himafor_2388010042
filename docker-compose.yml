@@ -1,0 +1,45 @@
+services:
+  web-statis:
+    image: ${STATIC_IMAGE}
+    container_name: web-statis
+    ports:
+      - "80:80"
+    restart: unless-stopped
+
+  web-dinamis:
+    image: ${DYNAMIC_IMAGE}
+    container_name: web-dinamis
+    ports:
+      - "3000:3000"
+    environment:
+      NODE_ENV: production
+      DB_HOST: mysql
+      DB_PORT: 3306
+      DB_USER: root
+      DB_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      DB_NAME: dbcompro
+      NEXTAUTH_URL: http://${AWS_HOST}:3000
+      NEXTAUTH_SECRET: ${NEXTAUTH_SECRET}
+    depends_on:
+      mysql:
+        condition: service_healthy
+    restart: unless-stopped
+
+  mysql:
+    image: mysql:8.4
+    container_name: mysql-web-dinamis
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: dbcompro
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./web-dinamis/sql/schema.sql:/docker-entrypoint-initdb.d/01-schema.sql:ro
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-uroot", "-p${MYSQL_ROOT_PASSWORD}"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+    restart: unless-stopped
+
+volumes:
+  mysql_data:

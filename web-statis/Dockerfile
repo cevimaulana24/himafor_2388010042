@@ -1,8 +1,5 @@
-# OS
 FROM nginx:alpine
 
-# PORT
-EXPOSE 80
+COPY . /usr/share/nginx/html
 
-# Copy file Website html
-COPY index.html /usr/share/nginx/html
+EXPOSE 80

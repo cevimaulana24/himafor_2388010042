@@ -1,0 +1,28 @@
+# OS metadata
+desktop.ini
+**/desktop.ini
+.DS_Store
+
+# Dependencies
+node_modules/
+**/node_modules/
+
+# Next.js build output
+.next/
+**/.next/
+out/
+build/
+next-env.d.ts
+*.tsbuildinfo
+web-dinamis/static/
+
+# Environment / secrets
+.env
+.env.*
+!.env.example
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
